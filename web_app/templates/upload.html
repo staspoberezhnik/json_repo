@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Storage statistic</title>
+</head>
+<body>
+
+
+    {% for key, value in db.items():%}
+    <p>file = <b>{{ key }}</b>  key = <b>{{value}}</b></p>
+    {% endfor %}
+
+
+</body>
+</html>
