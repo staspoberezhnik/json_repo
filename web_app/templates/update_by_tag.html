@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if tag == False%}
+
+<h1>Incorrect TAG</h1>
+{% else %}
+
+<form action="/storage/files/" method="patch" enctype="multipart/form-data">
+    <label for="tag">TAG</label>
+    <br>
+    <input type="text" name="tag" id="tag" value={{tag}}>
+
+    <br>
+    <label for="file">FILE</label>
+    <br>
+    <input type="file" name="file_name" id="file" value={{filename}}>
+    <br>
+    <input type="submit" value="send_info">
+
+    {% endif %}
+</form>
+
+</body>
+</html>
