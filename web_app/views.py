@@ -10,8 +10,6 @@ from .utils import protect_name
 
 def get_project_info():
     if request.method == 'GET':
-
-        # response_text = "<b>Hi. It's simple json repository based on Flask. Enjoy it.</b>"
         return render_template('base.html')
 
 
@@ -31,8 +29,6 @@ def download_file():
 
         file = request.files['file_name']
         protected_filename = protect_name(file.filename)
-        # resp_data = {request.form['tag']: [{'filename': file.filename},
-        #                                    {'protected_name': protected_filename}]}
         resp_data = [{'filename': file.filename}, {'protected_name': protected_filename}]
 
         filepath = os.path.join('media', file.filename)
@@ -55,7 +51,6 @@ def upload_files(tag):
                 tag_files = []
             else:
                 tag_files = db[tag][::2]
-        # print(tag_files)
         return render_template('files_by_tag.html', files_list=tag_files, tag=tag)
 
 
@@ -69,6 +64,4 @@ def update_file(tag, filename):
 
         return render_template('update_by_tag.html',tag=tags, filename=filename)
     elif request.method == 'PUT':
-        # get file_content from request_obj
-        # return Response(response="should update file by specific tag")
         return render_template()
