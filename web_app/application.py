@@ -16,10 +16,10 @@ def _init_routes(web_app):
                          methods=['GET', 'POST'],
                          view_func=views.download_file)
     web_app.add_url_rule('/storage/files/<tag>/',
-                         methods=['POST'],
+                         methods=['GET','POST'],
                          view_func=views.upload_files)
-    web_app.add_url_rule('/storage/files/<tag>/',
-                         methods=['PUT'],
+    web_app.add_url_rule('/storage/files/<tag>/<filename>',
+                         methods=['GET','PUT'],
                          view_func=views.update_file)
 
 

@@ -27,7 +27,7 @@ def initialize_env():
         #print('Media is already created')
         os.mkdir('media')
         print('creating directory media')
-        open('D:\\stas\\pycode\\proj 2\\media\\shelve_lib.db.txt', 'w')
+        # open('D:\\stas\\pycode\\proj 2\\media\\shelve_lib.db.txt', 'w')
 
 
 

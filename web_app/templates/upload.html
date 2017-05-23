@@ -6,11 +6,14 @@
 </head>
 <body>
 
+    {% for key,tags in db.items() %}
+    <p> teg = <b>{{key}}</b> include files</p>
 
-    {% for key, value in db.items():%}
-    <p>file = <b>{{ key }}</b>  key = <b>{{value}}</b></p>
+    {% for tag in tags %}
+    <div> <b>{{tag['filename']}}</b></div>
+
     {% endfor %}
-
+    {% endfor %}
 
 </body>
 </html>
