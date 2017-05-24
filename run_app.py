@@ -1,5 +1,3 @@
-import imp
-import sys
 import os
 import subprocess
 # comment added

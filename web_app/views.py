@@ -5,9 +5,6 @@ import shelve
 from .utils import protect_name
 
 
-
-
-
 def get_project_info():
     if request.method == 'GET':
         return render_template('base.html')
@@ -29,7 +26,8 @@ def download_file():
 
         file = request.files['file_name']
         protected_filename = protect_name(file.filename)
-        resp_data = [{'filename': file.filename}, {'protected_name': protected_filename}]
+        resp_data = [{'filename': file.filename,
+                      'protected_name': protected_filename}]
 
         filepath = os.path.join('media', file.filename)
         file.save(filepath)
@@ -51,7 +49,8 @@ def upload_files(tag):
                 tag_files = []
             else:
                 tag_files = db[tag][::2]
-        return render_template('files_by_tag.html', files_list=tag_files, tag=tag)
+        return render_template('files_by_tag.html',
+                               files_list=tag_files, tag=tag)
 
 
 def update_file(tag, filename):
@@ -62,6 +61,7 @@ def update_file(tag, filename):
             else:
                 tags = tag
 
-        return render_template('update_by_tag.html',tag=tags, filename=filename)
-    elif request.method == 'PUT':
+        return render_template('update_by_tag.html',
+                               tag=tags, filename=filename)
+    elif request.method == 'PATCH':
         return render_template()
