@@ -5,25 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-{% if tag == False%}
+    {% if tag != False%}
+        {% if filename != False%}
+    <form action="/storage/files/<tag>/<filename>" method="POST" enctype="multipart/form-data">
+        <label for="tag">TAG</label>
+        <br>
+        <input type="text" name="tag" id="tag" value={{tag}}>
 
-<h1>Incorrect TAG</h1>
-{% else %}
+            <br>
+            FILE {{filename}}
 
-<form action="/storage/files/" method="PATCH" enctype="multipart/form-data">
-    <label for="tag">TAG</label>
-    <br>
-    <input type="text" name="tag" id="tag" value={{tag}}>
+        <br>
+        <input type="hidden" name="protect_name"  value={{protected_name}}>
+        <input type="submit" value="send_info">
 
-    <br>
-    <label for="file">FILE</label>
-    <br>
-    <input type="file" name="file_name" id="file" value={{filename}}>
-    <br>
-    <input type="submit" value="send_info">
 
+    </form>
+        {% else %}
+        <h2>No files with that filename in database</h2>
+        {% endif %}
+    {% else %}
+    <h1>No tags {{tag}}</h1>
     {% endif %}
-</form>
+
 
 </body>
 </html>

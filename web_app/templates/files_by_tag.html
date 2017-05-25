@@ -5,18 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-<h1> </h1>
-{% if files_list == [] %}
-<h1>No files with tag {{tag}} </h1>
+
+
+{% if files_list != [] %}
+
+    <h1>Files with tag {{tag}}</h1>
+    {% for files in files_list %}
+    <br>
+
+        <a href = "/storage/return/{{files['protected_name']}}">
+            {{files['filename']}}
+        </a>
+    {% endfor %}
 
 {% else %}
-<h1>Files with tag {{tag}}</h1>
 
-{% for files in files_list %}
-
-<br><b>{{files['filename']}}</b>
-
-{% endfor %}
+    <h1>No files with tag {{tag}} </h1>
 
 {% endif %}
 

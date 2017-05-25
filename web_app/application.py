@@ -18,9 +18,11 @@ def _init_routes(web_app):
     web_app.add_url_rule('/storage/files/<tag>/',
                          methods=['GET', 'POST'],
                          view_func=views.upload_files)
-    web_app.add_url_rule('/storage/files/<tag>/<filename>',
-                         methods=['GET', 'PUT'],
+    web_app.add_url_rule('/storage/files/<tag>/<filename>/',
+                         methods=['GET', 'POST'],
                          view_func=views.update_file)
+    web_app.add_url_rule('/storage/return/<filename>/',methods=['GET'],
+                         view_func=views.return_file)
 
 
 _init_routes(app)
