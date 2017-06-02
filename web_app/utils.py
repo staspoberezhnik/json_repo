@@ -9,4 +9,3 @@ def protect_name(filename):
     new_name = '{0}_{1}{2}'.format(filename, protect, extension)
     print(new_name)
     return new_name
-

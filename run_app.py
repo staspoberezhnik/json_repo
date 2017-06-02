@@ -1,32 +1,20 @@
 import os
 import subprocess
-# comment added
-#TODO:
-#1)download all python packages
-#2)Create emypty storage if it need it
-#3)Create database file to track changes
+# TODO:
+# 1)download all python packages
+# 2)Create emypty storage if it need it
+# 3)Create database file to track changes
 
 
 def download_dependences():
-    # check if dependencies not installed->install it
-    # try:
-    #     imp.find_module('flask')
-    # except ImportError:
-    #     print('Module flask not found')
-    subprocess.run(['pip', 'install', 'flask'])
+    subprocess.run(['pip', 'install', '-r', 'requirements.txt'])
 
 
 def initialize_env():
-    #create directory, where we will save storage
-    #create db file->shelve lib
-    # print(os.getcwd())
-    #print(os.path.exists('tests'))
     if not os.path.exists('media'):
-        #print('Media is already created')
         os.mkdir('media')
         print('creating directory media')
-
-
+    pass
 
 
 def run_application():

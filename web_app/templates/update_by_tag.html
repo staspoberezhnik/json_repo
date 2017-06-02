@@ -5,28 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-    {% if tag != False%}
-        {% if filename != False%}
-    <form action="/storage/files/<tag>/<filename>" method="POST" enctype="multipart/form-data">
+        <h2>
+
+        <a href="/">Click to see project info</a>
+        <br>
+        <a href="/storage/stat/"  >Click to see project statistic</a>
+        <br>
+        <a href="/storage/files/"  >Click to open page to download file</a>
+
+        </h2>
+    <form action="/storage/files/{{oldtag}}/{{filename}}/" method="POST" enctype="multipart/form-data">
         <label for="tag">TAG</label>
         <br>
-        <input type="text" name="tag" id="tag" value={{tag}}>
+        <input type="text" name="tag" id="tag" value={{oldtag}}>
 
             <br>
             FILE {{filename}}
 
         <br>
-        <input type="hidden" name="protect_name"  value={{protected_name}}>
+        <input type="hidden" name="protect_name"  value="{{protectedname}}">
+        <input type="hidden" name="file_name"  value="{{filename}}">
+        <input type="hidden" name="old_tag"  value="{{oldtag}}">
         <input type="submit" value="send_info">
 
 
     </form>
-        {% else %}
-        <h2>No files with that filename in database</h2>
-        {% endif %}
-    {% else %}
-    <h1>No tags {{tag}}</h1>
-    {% endif %}
 
 
 </body>

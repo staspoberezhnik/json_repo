@@ -5,6 +5,13 @@
     <title>Storage statistic</title>
 </head>
 <body>
+
+<a href="/">Click to see project info</a>
+        <br>
+        <a href="/storage/stat/"  >Click to see project statistic</a>
+        <br>
+        <a href="/storage/files/"  >Click to open page to download file</a>
+
 <h2>List of all tags and files</h2>
 <h3>To download file click on it</h3>
 
@@ -13,12 +20,9 @@
 
         {% for file in tag %}
     <div>
-
         <a href="/storage/return/{{file['protected_name']}}">{{file['filename']}}</a>
-
     </div>
         {% endfor %}
-
     {% endfor %}
 
 </body>
